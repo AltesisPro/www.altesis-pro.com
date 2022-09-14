@@ -14,7 +14,10 @@ const site = lume({
 site.use(base_path());
 site.use(metas());
 site.use(jsx_preact());
-site.use(windi_css());
+site.use(windi_css({
+  minify: true,
+  mode: "compile",
+}));
 site.copy("static", ".");
 site.copy([".jpg", ".gif", ".png"]);
 
