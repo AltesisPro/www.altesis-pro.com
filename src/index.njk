@@ -1,0 +1,89 @@
+---
+title: Altesis ingegneria
+layout: layouts/main.njk
+menu:
+  visible: true
+  title: Home
+  order: 0
+---
+
+  <div class="flex w-full flex-col justify-between">
+    <div class="flex flex-col justify-center py-12">
+      <div
+        class="flex w-full flex-col items-center self-center px-4 sm:flex-row sm:px-0 md:w-5/6 xl:w-2/3"
+      >
+        <div class="w-full py-12 text-center sm:w-1/2 sm:px-8 sm:text-left">
+          <h1 class="text-4xl font-bold tracking-wide">Engineering & Consulting</h1>
+          <ul class="reveal_container my-6 block text-2xl font-light text-secondary-500">
+            <li class="reveal_item xl:pl-3">Environment</li>
+            <li class="reveal_item xl:pl-3">Renewable Energy</li>
+            <li class="reveal_item xl:pl-3">ESG Reporting</li>
+            <li class="reveal_item xl:pl-3">Process Efficiency</li>
+            <li class="reveal_item xl:pl-3">Environment</li>
+          </ul>
+          <h2 class="mb-6 text-xl tracking-wide">
+            <span class="text-secondary-500">Smart</span>
+            engineering,
+            <br />
+            for smart
+            <span class="text-secondary-500">Enterprises</span>
+          </h2>
+        </div>
+        <div class="w-full sm:w-1/2">
+            <img src="images/undraw_city_life_gnpr.svg" alt="City neighborood with people" />
+        </div>
+      </div>
+    </div>
+
+    <div id="register" class="bg-gray-800 flex w-full flex-col items-center justify-center">
+      <div class="sm:px:0 w-full self-center px-4 text-center xl:w-1/3">
+        <form
+          class="my-20 mx-auto w-full max-w-lg"
+          action="#"
+          method="post"
+          id="registration-form"
+          target="_blank"
+          validate
+        >
+          <div class="border-primary flex items-center border-b py-2">
+            <input
+              class="mr-3 w-full appearance-none border border-transparent bg-transparent py-2 px-3 text-neutral-200 focus:border-neutral-400 focus:bg-neutral-400 focus:text-neutral-800 focus:outline-none"
+              type="email"
+              value=""
+              name="email"
+              placeholder="your.email@yourcompany.com"
+              aria-label="Email Address"
+              required
+            />
+            <button
+              class="flex-shrink-0 border border-secondary-600 bg-primary-600 py-2 px-4 text-neutral-200 hover:bg-neutral-800 hover:text-primary-600"
+              type="submit"
+              name="subscribe"
+            >
+              Contact me!
+            </button>
+          </div>
+          <label class="mt-4 block px-2 text-left text-neutral-200" for="gdpr_37169">
+            <input
+              class="leading-tight"
+              type="checkbox"
+              id="gdpr_37169"
+              name="gdpr[37169]"
+              value="Y"
+              required
+            />
+            <span class="text-md font-light">
+              I agree with the
+              <a
+                href="/privacy"
+                class="underline hover:text-primary-600 hover:no-underline"
+                title="Privacy Policy"
+                target="_blank"
+                >Privacy Policy</a
+              >
+            </span>
+          </label>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,11 @@
+layout: layouts/main.njk
+
+metas:
+  site: Altésis ingegneria's blog
+  twitter: "@AltesisPro"
+  icon: /img/icon.png
+  lang: en
+  generator: true
+
+mergedKeys:
+  metas: object
