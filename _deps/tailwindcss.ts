@@ -1,7 +1,10 @@
-import { writableStreamFromWriter } from "https://deno.land/std@0.156.0/streams/mod.ts";
-import { ensureFile } from "https://deno.land/std@0.156.0/fs/mod.ts";
+import { ensureDir } from "https://deno.land/std@0.156.0/fs/mod.ts";
+import { dirname } from "https://deno.land/std@0.139.0/path/mod.ts";
 
-export async function getTwBinFullPath(version: string, dir: string): Promise<string> {
+export async function getTwBinFullPath(
+  version: string,
+  dir: string
+): Promise<string> {
   const targets = {
     darwin: {
       x86_64: "macos-x64",
@@ -24,6 +27,7 @@ export async function getTwBinFullPath(version: string, dir: string): Promise<st
 
   // Check if the file exists
   try {
+    // Maybe substitute with Deno.chmod(0o755)
     await Deno.stat(binFullPath);
   } catch {
     // else download the file
@@ -39,10 +43,12 @@ async function dlTwBin(version: string, target: string, dest: string) {
 
   const fileResponse = await fetch(dlUrl);
   if (fileResponse.body) {
-    await ensureFile(dest);
-    await Deno.chmod(dest, 0o755);
-    const file = await Deno.open(dest, { write: true });
-    const writableStream = writableStreamFromWriter(file);
-    await fileResponse.body.pipeTo(writableStream);
+    await ensureDir(dirname(dest));
+    const file = await Deno.open(dest, {
+      create: true,
+      write: true,
+      mode: 0o755,
+    });
+    await fileResponse.body.pipeTo(file.writable);
   }
 }
