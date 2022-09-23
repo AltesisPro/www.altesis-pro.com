@@ -23,9 +23,11 @@ export default function ({ title, links }) {
     </header>
 
     <ul>
-      ${links
-        .map((link) => `<li><a href="${link.url}">${link.text}</a></li>`)
-        .join("")}
+      ${
+    links
+      .map((link) => `<li><a href="${link.url}">${link.text}</a></li>`)
+      .join("")
+  }
     </ul>
   </article>`;
 }

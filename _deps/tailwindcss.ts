@@ -1,9 +1,9 @@
 import { ensureDir } from "https://deno.land/std@0.156.0/fs/mod.ts";
-import { dirname } from "https://deno.land/std@0.139.0/path/mod.ts";
+import { dirname } from "https://deno.land/std@0.156.0/path/mod.ts";
 
 export async function getTwBinFullPath(
   version: string,
-  dir: string
+  dir: string,
 ): Promise<string> {
   const targets = {
     darwin: {
@@ -24,31 +24,30 @@ export async function getTwBinFullPath(
   const arch = Deno.build.arch;
   const name = `tailwindcss-v${version}-${targets[os][arch]}`;
   const binFullPath = `${dir}/${name}`;
-
-  // Check if the file exists
-  try {
-    // Maybe substitute with Deno.chmod(0o755)
-    await Deno.stat(binFullPath);
-  } catch {
-    // else download the file
-    await dlTwBin(version, targets[os][arch], binFullPath);
-  }
-  return binFullPath;
-}
-
-async function dlTwBin(version: string, target: string, dest: string) {
   const dlUrl = new URL(
-    `https://github.com/tailwindlabs/tailwindcss/releases/download/v${version}/tailwindcss-${target}`
+    `https://github.com/tailwindlabs/tailwindcss/releases/download/v${version}/tailwindcss-${
+      targets[os][arch]
+    }`,
   );
 
-  const fileResponse = await fetch(dlUrl);
-  if (fileResponse.body) {
-    await ensureDir(dirname(dest));
-    const file = await Deno.open(dest, {
+  try {
+    await ensureDir(dirname(binFullPath));
+    const binFile = await Deno.open(binFullPath, {
       create: true,
       write: true,
       mode: 0o755,
+      createNew: true,
     });
-    await fileResponse.body.pipeTo(file.writable);
+
+    const fileResponse = await fetch(dlUrl);
+    if (fileResponse.body) {
+      await fileResponse.body.pipeTo(binFile.writable);
+    }
+  } catch (e) {
+    if (!(e instanceof Deno.errors.AlreadyExists)) {
+      await Deno.remove(binFullPath, { recursive: true });
+      throw e;
+    }
   }
+  return binFullPath;
 }
