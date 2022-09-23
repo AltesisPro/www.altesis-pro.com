@@ -1,9 +1,10 @@
 import { ensureDir } from "https://deno.land/std@0.156.0/fs/mod.ts";
 import { dirname } from "https://deno.land/std@0.156.0/path/mod.ts";
+import { Page } from "https://deno.land/x/lume@v1.11.4/core.ts";
 
 export async function getTwBinFullPath(
   version: string,
-  dir: string,
+  dir: string
 ): Promise<string> {
   const targets = {
     darwin: {
@@ -25,9 +26,7 @@ export async function getTwBinFullPath(
   const name = `tailwindcss-v${version}-${targets[os][arch]}`;
   const binFullPath = `${dir}/${name}`;
   const dlUrl = new URL(
-    `https://github.com/tailwindlabs/tailwindcss/releases/download/v${version}/tailwindcss-${
-      targets[os][arch]
-    }`,
+    `https://github.com/tailwindlabs/tailwindcss/releases/download/v${version}/tailwindcss-${targets[os][arch]}`
   );
 
   try {
@@ -50,4 +49,15 @@ export async function getTwBinFullPath(
     }
   }
   return binFullPath;
+}
+
+export function addHeadLink(page: Page) {
+  const { document } = page;
+  if (!document) return;
+  const cssLinkEl = document.createElement(
+    `<link rel="stylesheet" href="css/main.css" />`
+  );
+
+  if (!Array.from(document.head.children).includes(cssLinkEl))
+    document.head.appendChild(cssLinkEl);
 }
