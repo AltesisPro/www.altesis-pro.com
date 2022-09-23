@@ -1,6 +1,6 @@
-import { ensureDir } from "https://deno.land/std@0.156.0/fs/mod.ts";
-import { dirname } from "https://deno.land/std@0.156.0/path/mod.ts";
-import { Page } from "https://deno.land/x/lume@v1.11.4/core.ts";
+import type { Page } from "lume/core.ts";
+import { ensureDir } from "std/fs/mod.ts";
+import { dirname } from "std/path/mod.ts";
 
 export async function getTwBinFullPath(
   version: string,
