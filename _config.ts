@@ -11,11 +11,11 @@ const site = lume({
   },
 });
 
-site.use(tailwindcss());
 site.use(base_path());
 site.use(metas());
 // site.use(jsx_preact());
 site.copy("static", ".");
 site.copy([".jpg", ".gif", ".png"]);
+site.use(tailwindcss());
 
 export default site;
