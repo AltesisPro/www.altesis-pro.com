@@ -34,5 +34,20 @@ export default function tailwindcss(userOptions?: Partial<Options>) {
       await process.status();
       process.close();
     });
+
+    site.addEventListener("afterUpdate", async () => {
+      const tailwindBin = await getTwBinFullPath(version, dir);
+      const process = Deno.run({
+        cmd: [
+          tailwindBin,
+          "-i",
+          "./_site/css/main.css",
+          "-o",
+          "./_site/css/main.css",
+        ],
+      });
+      await process.status();
+      process.close();
+    });
   };
 }

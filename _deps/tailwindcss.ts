@@ -54,10 +54,9 @@ export async function getTwBinFullPath(
 export function addHeadLink(page: Page) {
   const { document } = page;
   if (!document) return;
-  const cssLinkEl = document.createElement(
-    `<link rel="stylesheet" href="css/main.css" />`
-  );
-
+  const cssLinkEl = document.createElement("link");
+  cssLinkEl.setAttribute("href", "css/main.css");
+  cssLinkEl.setAttribute("rel", "stylesheet");
   if (!Array.from(document.head.children).includes(cssLinkEl))
     document.head.appendChild(cssLinkEl);
 }
