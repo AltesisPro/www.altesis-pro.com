@@ -1,3 +1,0 @@
-**Altésis website**
-
-Hello world
