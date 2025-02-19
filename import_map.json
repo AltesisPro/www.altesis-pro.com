@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "std/": "https://deno.land/std@0.156.0/",
-    "lume/": "https://deno.land/x/lume@v1.11.4/",
-    "preact/jsx-runtime": "https://deno.land/x/lume@v1.11.4/deps/preact_runtime.ts",
-    "preact": "https://deno.land/x/lume@v1.11.4/deps/preact.ts",
-    "dbin/": "https://deno.land/x/dbin@v0.1.1/"
-  }
-}
