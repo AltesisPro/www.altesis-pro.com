@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Altésis Software Engineering</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -23,61 +25,68 @@
         <!-- Navigation -->
         <nav class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-            <div class="flex items-center text-blue-900 transition-all duration-300"
-                :class="{ 'text-xl': shrunk, 'text-2xl': !shrunk }">
-                <img src="Altesis-logo.svg" alt="Altésis Logo" class="h-8 w-8 mr-2">
-                Altésis
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#" class="text-blue-900 hover:text-blue-700">Services</a>
-                <a href="#" class="text-blue-900 hover:text-blue-700">About</a>
-                <a href="#" class="text-blue-900 hover:text-blue-700">Contact</a>
-            </div>
+                <div class="flex items-center text-blue-900 transition-all duration-300 cursor-pointer"
+                    :class="{ 'text-xl': shrunk, 'text-2xl': !shrunk }" onclick="window.location.href='/'">
+                    <img src="Altesis-logo.svg" alt="Altésis Logo" class="h-8 w-8 mr-2">
+                    Altésis
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-blue-900 hover:text-blue-700">Services</a>
+                    <a href="#" class="text-blue-900 hover:text-blue-700">About</a>
+                    <a href="#" class="text-blue-900 hover:text-blue-700">Contact</a>
+                </div>
             </div>
         </nav>
     </header>
     <section
         class="min-h-screen bg-gradient-to-b from-white from-5% via-white via-30% to-blue-900 relative overflow-hidden">
         <!-- Animated Background SVG -->
-        <svg class="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 100 100" style="transform: perspective(300px) rotateX(45deg)">
+        <svg class="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 100 100"
+            style="transform: perspective(300px) rotateX(45deg)">
             <defs>
-            <filter id="blur">
-            <feGaussianBlur stdDeviation="0.3" />
-            </filter>
+                <filter id="blur">
+                    <feGaussianBlur stdDeviation="0.3" />
+                </filter>
             </defs>
             <g filter="url(#blur)">
-            <circle cx="50" cy="15" r="0.8" fill="white">
-            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="16s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="8s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="35" r="0.8" fill="white">
-            <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="12s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="6s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="55" r="0.6" fill="white">
-            <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="20s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="10s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="75" r="0.7" fill="white">
-            <animateTransform attributeName="transform" type="rotate" from="270 50 50" to="630 50 50" dur="18s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="8.8s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="50" cy="95" r="0.8" fill="white">
-            <animateTransform attributeName="transform" type="rotate" from="45 50 50" to="405 50 50" dur="14s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.2;1;0.2" dur="7.2s" repeatCount="indefinite"/>
-            </circle>
+                <circle cx="50" cy="15" r="0.8" fill="white">
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="16s"
+                        repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.2;1;0.2" dur="8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="35" r="0.8" fill="white">
+                    <animateTransform attributeName="transform" type="rotate" from="90 50 50" to="450 50 50" dur="12s"
+                        repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.2;1;0.2" dur="6s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="55" r="0.6" fill="white">
+                    <animateTransform attributeName="transform" type="rotate" from="180 50 50" to="540 50 50" dur="20s"
+                        repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.2;1;0.2" dur="10s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="75" r="0.7" fill="white">
+                    <animateTransform attributeName="transform" type="rotate" from="270 50 50" to="630 50 50" dur="18s"
+                        repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.2;1;0.2" dur="8.8s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="95" r="0.8" fill="white">
+                    <animateTransform attributeName="transform" type="rotate" from="45 50 50" to="405 50 50" dur="14s"
+                        repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.2;1;0.2" dur="7.2s" repeatCount="indefinite" />
+                </circle>
             </g>
         </svg>
 
         <!-- Hero Section -->
         <div class="flex flex-col items-center justify-center min-h-[80vh] text-center space-y-16">
             <h1 class="text-4xl md:text-6xl font-bold text-blue-900">
-            From Requirements to Product
+                From Requirements to Product
             </h1>
-            <p class="text-xl md:text-2xl text-blue-800 max-w-2xl">
-            Customized Workflows and DevOps
-            <br>
-            to suit your unique needs
+            <p
+                class="text-xl md:text-2xl text-blue-800 max-w-2xl [text-shadow:0_0_15px_rgba(59,130,246,0.8),0_0_30px_rgba(59,130,246,0.6)]">
+                Customized Workflows and DevOps
+                <br>
+                for software-first Enterprises
             </p>
         </div>
         <div class="flex justify-center">
