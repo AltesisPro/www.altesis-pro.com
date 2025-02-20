@@ -14,19 +14,24 @@
 <body>
     <header x-data="{ isMenuOpen: false, shrunk: false }"
         class="fixed top-0 w-full bg-white/90 transition-all duration-300 z-50"
-        :class="{ 'py-2 shadow-lg': shrunk, 'py-4': !shrunk }" @scroll.window="shrunk = window.pageYOffset > 50">
+        :class="{ 'py-1 shadow-lg': shrunk, 'py-6': !shrunk }" @scroll.window="shrunk = window.pageYOffset > 50">
         <!-- Navigation -->
         <nav class="container mx-auto px-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center text-blue-900 transition-all duration-300 cursor-pointer"
-                    :class="{ 'text-xl': shrunk, 'text-2xl': !shrunk }" onclick="window.location.href='/'">
-                    <img src="Altesis-logo.svg" alt="Altésis Logo" class="h-8 w-8 mr-2">
-                    Altésis
+                    :class="{ 'text-lg': shrunk, 'text-3xl': !shrunk }" onclick="window.location.href='/'">
+                    <img src="Altesis-logo.svg" alt="Altésis Logo" 
+                         class="transition-all duration-300"
+                         :class="{ 'h-6 w-6': shrunk, 'h-10 w-10': !shrunk }">
+                    <span class="ml-3">Altésis</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="/#services" class="text-blue-900 hover:text-blue-700">Services</a>
-                    <a href="/#references" class="text-blue-900 hover:text-blue-700">References</a>
-                    <a href="/#contact" class="text-blue-900 hover:text-blue-700">Contact</a>
+                    <a href="/#services" class="text-blue-900 hover:text-blue-700 transition-all duration-300"
+                       :class="{ 'text-base': shrunk, 'text-lg': !shrunk }">Services</a>
+                    <a href="/#references" class="text-blue-900 hover:text-blue-700 transition-all duration-300"
+                       :class="{ 'text-base': shrunk, 'text-lg': !shrunk }">References</a>
+                    <a href="/#contact" class="text-blue-900 hover:text-blue-700 transition-all duration-300"
+                       :class="{ 'text-base': shrunk, 'text-lg': !shrunk }">Contact</a>
                 </div>
             </div>
         </nav>
@@ -254,7 +259,7 @@
                         <h3 class="text-xl font-semibold text-blue-900 [text-shadow:0_0_15px_rgba(59,130,246,0.8)]">Get
                             in
                             Touch</h3>
-                        <p class="text-blue-800">Email: contact [@] altesis.com</p>
+                        <p class="text-blue-800">Email: contact [@] altesis-pro.com</p>
                     </div>
                     <div class="space-y-4">
                         <h3 class="text-xl font-semibold text-blue-900 [text-shadow:0_0_15px_rgba(59,130,246,0.8)]">
